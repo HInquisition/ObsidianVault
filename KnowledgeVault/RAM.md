@@ -1,14 +1,14 @@
 # RAM, Random Access [[Memory]]
-Ram - fast read/write memory
+
+Ram - fast read/write memory. Main temporary memory for the computer.
 
 - RAM retain their data as long as power is applied to them
 
+## Types of RAM
+
 RAM can be further divided into static RAM ([[SRAM]]) and dynamic RAM
 ([[DRAM]]). But unlike static RAM, dynamic RAM needs to be
-“refreshed” periodically (by reading the data and then re-writing it) in order to
-prevent its contents from disappearing. This is because [[DRAM]] memory cells
-are built from MOS capacitors that gradually lose their charge, and reading
-such memory cells is destructive to the data they contain.
+“refreshed” periodically (by reading the data and then re-writing it) in order to prevent its contents from disappearing. This is because [[DRAM]] memory cells are built from MOS capacitors that gradually lose their charge, and reading such memory cells is destructive to the data they contain.
 
 RAM can also be categorized by various other design characteristics, such
 as:

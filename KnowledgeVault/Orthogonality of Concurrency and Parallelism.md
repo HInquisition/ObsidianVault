@@ -1,0 +1,5 @@
+# Orthogonality of [[Concurrency]] and [[Parallelism]]
+
+We should stress here that concurrent software doesn’t *require* parallel hardware, and parallel hardware isn’t *only* for running concurrent software. For example, a concurrent multithreaded program can run on a single, serial CPU core via [[Preemptive Multitasking|preemptive multitasking]]. Likewise, [[Implicit Parallelism|instruction level parallelism]] is intended to improve the performance of a single thread, and therefore benefits both concurrent and sequential software. So while they are closely related, concurrency and parallelism are really orthogonal concepts.
+
+As long as our system involves multiple readers and/or multiple writers of a shared data object, we have a concurrent system. Concurrency can be achieved via preemptive multitasking (on serial or parallel hardware) or via true parallelism (in which each thread executes on a distinct core)—the techniques we’ll learn in this chapter will be applicable either way.

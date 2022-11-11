@@ -30,6 +30,7 @@ be theoretically addressed by its [[Address Bus]]. A 64-bit address bus can acce
 16 EiB of memory, so we’d be unlikely to ever fully populate such an
 address space! Therefore, it’s common place for some segments of a computer’s address space to remain unassigned.
 
+
 ## Memory-Mapped I/O
 
 Address ranges needn’t all map to memory devices—an address range might
@@ -46,10 +47,12 @@ writing to the addresses in this range.
 
 Alternatively, a [[CPU]] might communicate with non-memory devices via special [[Registers]] known as [[Ports]]. In this case, whenever the [[CPU]] requests that data be read from or written to a port register, the hardware converts the request into an I/O operation on the target device. This approach is called portmapped I/O. In the Arduino line of microcontrollers, port-mapped I/O gives a program direct control over the digital inputs and outputs at some of the pins of the chip.
 
+
 ## [[VRAM]]
 Raster-based display devices typically read a hard-wired range of physical
 memory addresses in order to determine the brightness/color of each pixel on
 the screen. A range of memory addresses assigned for use by a video controller is known as video [[RAM]] ([[VRAM]]). 
+
 ## Case Study: The Apple II Memory Map
 To illustrate the concepts of memory mapping, let’s look at a simple real-world
 example. The Apple II had a 16-bit address bus, meaning that its address
@@ -74,10 +77,11 @@ We should note that the addresses in the Apple II memory map corresponded
 directly to memory chips on the motherboard. In today’s operating systems,
 programs work in terms of virtual addresses rather than physical addresses.
 
+
 ## [[Virtual Memory]] Mapping
 Most modern CPUs and operating systems support a memory remapping feature
-known as a virtual memory system. In these systems, the memory addresses
+known as a [[Virtual Memory]] system. In these systems, the memory addresses
 used by a program don’t map directly to the memory modules installed in the
 computer. Instead, whenever a program reads from or writes to an address,
-that address is first remapped by the CPU via a look-up table that’s maintained
-by the OS.
+that address is first remapped by the [[CPU]] via a look-up table that’s maintained
+by the [[OS]].

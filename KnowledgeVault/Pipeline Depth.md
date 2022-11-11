@@ -1,0 +1,5 @@
+# Pipeline Depths
+
+We said that each stage in a [[CPU]] can potentially have a different [[Latency versus Throughput|latency]] ($T_i$), and that the stage with the longest latency dictates the throughput of the entire processor. On each clock cycle, the other stages sit idle waiting for the longest stage to complete. Ideally, then, we’d like all of the stages in our CPU to have roughly the same latency.
+
+This goal can be achieved by increasing the total number of stages in the pipeline: If one stage is taking much longer than the others, it can be broken into two or more shorter stages in an attempt to make all the latencies roughly equal. However, we can’t just keep subdividing stages forever. The larger the number of stages, the higher the overall instruction latency will be. This increases the cost of [[Pipeline Stalls|pipeline stalls]]. Therefore CPU manufacturers try to strike a balance between increasing [[Latency versus Throughput|throughput]] via deeper pipelines, and keeping the overall instruction latency in check. As a result, real CPU pipelines range from 4 or 5 stages at minimum, to something on the order of 30 stages at most.
