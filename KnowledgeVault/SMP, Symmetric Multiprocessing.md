@@ -1,0 +1,3 @@
+# SMP, Symmetric Multiprocessing
+
+In <mark style="background: #D2B3FFA6;">Symmetric Multiprocessing (SMP)</mark>, the available CPU cores in the machine (provided by any combination of hyperthreading, multicore CPUs or multiple CPUs on a single motherboard) are homogeneous in terms of design and [[ISA, Instruction Set Architecture|ISA]], and are treated equally by the operating system. Any thread can be scheduled to execute on any core. (Note, however, that it is possible in such systems to specify an affinity for a thread, causing it to be more likely, or even guaranteed, to be scheduled on a particular core.)

@@ -1,0 +1,5 @@
+# Debugging with [[Fibers]]
+
+Because fibers are provided by the OS, debugging tools and profiling tools should be able to “see” them, just the way they can “see” threads. For example, when debugging on the PS4 using SN Systems’ Visual Studio debugger plugin for Clang, fibers automatically show up in the Threads window as if they were threads. You can double-click a fiber to activate it within the Watch and Call Stack windows, and then walk up and down its call stack just as you normally would with a thread.
+
+If you’re considering using fibers in your game engine, it’s a good idea to check out your debugger’s capabilities on your target platform before you commit a lot of time and effort to a fiber-based design. If your debugger and/or target platform doesn’t provide good tools for debugging fibers, that could be a deal breaker.

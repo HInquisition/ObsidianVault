@@ -1,0 +1,3 @@
+# Resource dependency
+
+This kind of dependency arises when two or more consecutive instructions all require the same functional unit within the CPU. For example, let’s imagine we have a [[Superscalar CPU]] with two integer [[ALU]]s but only one [[FPU]]. Such a processor is capable of issuing two integer arithmetic instructions on each clock. But if two floating-point arithmetic instructions are encountered in the instruction stream, they cannot both be issued on the same clock cycle because the resource required by the second (the FPU) will already be in use by the first.

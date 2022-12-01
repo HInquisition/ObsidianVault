@@ -1,6 +1,6 @@
 # Concurrency
 
-A concurrent piece of software utilizes multiple **flows of control** to solve a problem. These flows of control might be implemented as multiple **[[Threads]]** running within the context of a single [[Process|process]], or multiple cooperating processes running either on a single computer or multiple computers. Multiple flows of control can also be implemented within a process using other techniques such as [[Fibers]] or [[Coroutines]].
+A concurrent piece of software utilizes multiple **flows of control** to solve a problem. These flows of control might be implemented as multiple **[[Threads]]** running within the context of a single [[Processes|process]], or multiple cooperating processes running either on a single computer or multiple computers. Multiple flows of control can also be implemented within a process using other techniques such as [[Fibers]] or [[Coroutines]].
 
 The primary factor that distinguishes concurrent programming from sequential programming is the **reading and/or writing of shared data**. If we have two or more flows of control, each operating on a totally independent block of data, then this is not technically an example of concurrency—it’s just “computing at the same time.”
 

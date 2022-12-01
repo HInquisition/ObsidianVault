@@ -1,0 +1,3 @@
+# Fiber Creation and Destruction
+
+How do we convert a [[Threads|thread-based]] [[Processes|process]] into a [[Fibers|fiber-based]] one? Every process starts with a single thread when it first runs; hence processes are thread-based by default. When a thread calls the function `ConvertThreadToFiber()`, a new fiber is created within the context of the calling thread. This “bootstraps” the process so that it can create and schedule more fibers. Other fibers are created by calling `CreateFiber()` and passing it the address of a function that will serve as its entry point. Any running fiber can cooperatively schedule a different fiber to run within its thread by calling `SwitchToFiber()`. When a fiber is no longer needed, it can be destroyed by calling `DeleteFiber()`.

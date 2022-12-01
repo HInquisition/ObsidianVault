@@ -1,0 +1,10 @@
+# Fiber States
+
+A [[Fibers|fiber]] can be in one of two states: <mark style="background: #D2B3FFA6;">Active</mark> or <mark style="background: #D2B3FFA6;">Inactive</mark>. When a fiber is in its Active state, it is assigned to a [[Threads|thread]], and executes on its behalf. When a fiber is in its Inactive state, it is sitting on the sidelines, not consuming the resources of any thread, just waiting to be activated. Windows calls an Active fiber the “selected” fiber for a given thread.
+
+An Active fiber can *deactivate* itself and make another fiber active by calling `SwitchToFiber()`. This is the only way that fibers can switch between the Active and Inactive states.
+
+Whether or not an Active fiber is actively executing on a CPU core is determined by the state of its enclosing thread. When an Active fiber’s thread is in the Running state, that fiber’s [[Machine Language]] instructions are being executed on a core. When an Active fiber’s thread is in the Runnable or Blocked state, its instructions of course cannot execute, because the entire thread is sitting on the sidelines, either waiting to be scheduled on a core or waiting for a condition to become true. 
+See [[Context Switching]] for more about thread's states
+
+It’s important to understand that fibers don’t themselves have a Blocked state, the way threads do. In other words, it’s not possible to put a fiber to sleep waiting on a condition. Only its thread can be put to sleep. Because of this restriction, whenever a fiber needs to wait for a condition to become true, it either [[Polling Threads|busy-waits]] or it calls `SwitchToFiber` in order to yield control to another fiber while it waits. Making a blocking OS call from within a fiber is usually a pretty big no-no. Doing so would put the fiber’s enclosing thread to sleep, thereby preventing that fiber from doing anything—including scheduling other fibers to run cooperatively.

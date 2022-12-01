@@ -33,4 +33,4 @@ Pipelining is a form of parallelism known as [[Implicit Parallelism|Instruction-
 However, pipelining doesn’t always perform as well as we would expect, thanks to various kinds of dependencies between instructions in the instruction stream.  
 [[Data Dependencies]] 
 [[Branch Dependencies]]
-[[Resource Dependencies).]]
+[[Resource Dependencies]]

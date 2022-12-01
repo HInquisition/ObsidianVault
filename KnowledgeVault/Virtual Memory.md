@@ -56,6 +56,5 @@ the [[Address Bus]].
 ![[Pasted image 20221025182602.png]]
 ## The Translation Lookaside Buffer (TLB)
 
-Because page sizes tend to be small relative to the total size of addressable memory (typically 4 KiB or 8 KiB), the page table can become very large. Looking up physical addresses in the page table would be time-consuming if the entire table had to be scanned for every memory access a program makes. To speed up access, a caching mechanism is used, based on the assumption that an average program will tend to reuse addresses within a relatively small number of pages, rather than read and write randomly across the entire address range. A small table known as the translation lookaside buffer (TLB) is maintained within the [[MMU]] on the [[CPU]] die, in which the virtual-to-physical address mappings of the most recently-used addresses are cached. Because this buffer is located in close proximity to the [[MMU]], accessing it is very fast. The TLB acts a lot like a general purpose memory cache hierarchy (see [[Memory Cache]]), except that it is only used for caching page table entries. 
-
+![[Translation Lookaside Buffer, TLB#The Translation Lookaside Buffer (TLB)]]
 

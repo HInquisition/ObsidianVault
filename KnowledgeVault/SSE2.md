@@ -1,0 +1,1 @@
+# Streaming [[Single instruction multiple data, SIMD|SIMD]] Extensions 2, SSE2

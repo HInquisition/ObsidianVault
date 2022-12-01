@@ -1,0 +1,3 @@
+# Hardware Interrupts
+
+A hardware interrupt is requested by placing a non-zero voltage onto one of the pins of the [[CPU]]. Hardware interrupts might be raised by devices such as a keyboard or mouse, or by a periodic timer circuit on the motherboard or within the CPU itself. Because it’s triggered by an external device, a hardware interrupt can happen at any time—even right in the middle of executing a CPU instruction. As such, there may be a tiny delay between the moment when a hardware interrupt is physically raised and when the CPU is in a suitable state to handle it.

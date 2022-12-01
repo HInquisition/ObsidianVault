@@ -1,0 +1,12 @@
+# Branch Prediction / Speculative Execution
+
+One way CPUs deal with [[Branch Dependencies]] is via a technique known as
+<mark style="background: #D2B3FFA6;">speculative execution</mark>, also known as <mark style="background: #D2B3FFA6;">branch prediction</mark>. Whenever a branch instruction is encountered, the CPU tries to guess at which branch is going to be taken. It continues to issue the instructions from the selected branch, in the hopes that its guess was correct. Of course, the CPU won’t know for sure whether it guessed correctly until the dependent instruction pops out at the end of the pipeline. If the guess ends up being wrong, the CPU has executed instructions that shouldn’t have been executed at all. So the pipeline must be flushed and restarted at the first instruction of the correct branch. This is called a <mark style="background: #D2B3FFA6;">branch penalty</mark>.
+
+The simplest guess a CPU can make is to assume that branches are never taken. The CPU just keeps executing instructions in sequential order, and only jumps the instruction pointer to a new location when its guess is proven wrong. This approach is [[I-cache]] friendly, in the sense that the CPU always prefers the branch whose instructions are most likely to be in the cache. 
+
+Another slightly more advanced approach to branch prediction is to assume that backward branches are always taken and forward branches are never taken. A backward branch is the kind found at the end of a while or for loop, so such branches tend to be more prevalent than forward branches.
+
+Most high-quality CPUs include branch prediction hardware that can improve the quality these “static” guesses significantly. A branch predictor can track the results of a branch instruction over multiple iterations of a loop and discover patterns that help it make better guesses on subsequent iterations. PS3 game programmers had to deal with the poor performance of “branchy” code all the time, because the branch predictors on the Cell processor were frankly pretty terrible. But the AMD Jaguar CPU found in the PS4 and Xbox One has highly advanced branch prediction hardware, so game programmers can breathe a little easier when writing code for the PS4.
+
+[Popular Stack Overflow Question](https://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-processing-an-unsorted-array)

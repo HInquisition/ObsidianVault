@@ -1,0 +1,8 @@
+# Kernel Threads versus User Threads
+
+The term <mark style="background: #D2B3FFA6;">“kernel thread”</mark> has two very different meanings, and this can become a major source of confusion as you read more about multithreading. So let’s demystify the term. The two definitions are as follows:
+
+1. On Linux, a “kernel thread” is a special kind of thread created for internal use by the kernel itself, which runs only while the CPU is in [[Kernel Mode Privileges|privileged mode]]. The kernel also creates threads for use by processes (via an API such as `pthread` or C++11’s `std::thread`). These threads run in user space within the context of a process. In this sense of the term, any thread that runs in privileged mode is a kernel thread, and any thread that runs in user mode (in the context of a single-threaded or multithreaded process) is a “user thread.”
+2. The term “kernel thread” can also be used to refer to any thread that is known to and scheduled by the kernel. Using this definition, a kernel thread can execute in either kernel space or user space, and the term “user thread” only applies to a flow of control that is managed entirely by a user-space program without the kernel being involved at all, such as a coroutine.
+
+Using definition #2, a [[Fibers|fiber]] blurs the line between “kernel thread” and “user thread.” On the one hand, the kernel is aware of fibers and maintains a separate call stack for each one. On the other hand, a fiber is not scheduled by the kernel—it can run only when another fiber or thread explicitly hands control to it via a call such as `SwitchToFiber()`.

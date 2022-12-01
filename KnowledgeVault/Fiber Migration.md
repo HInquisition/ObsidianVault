@@ -1,0 +1,3 @@
+# Fiber Migration
+
+A [[Fibers|fiber]] can migrate from thread to thread, but only by passing through its Inactive state. As an example, consider a fiber F that is running within the context of thread A. Fiber F calls `SwitchToFiber(G)` to activate a different fiber named G inside thread A. This puts fiber F into its Inactive state (meaning it is no longer associated with any thread). Now let’s assume that another thread named B is running fiber H. If fiber H calls `SwitchToFiber(F)`, then fiber F has effectively migrated from thread A to thread B.

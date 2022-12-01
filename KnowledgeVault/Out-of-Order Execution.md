@@ -1,0 +1,7 @@
+# Out-of-Order Execution
+
+Compilers and programmers aren’t the only ones capable of reordering a sequence of machine language instructions to prevent [[Pipeline Stalls|stalls]]. Many of today’s CPUs support a feature known as <mark style="background: #D2B3FFA6;">out-of-order execution</mark>, which enables them to dynamically detect [[Data Dependencies]] between instructions, and automatically resolve them.
+
+To accomplish this feat, the CPU looks ahead in the instruction stream and analyzes the instructions’ register usage in order to detect dependencies between them. When a dependency is found, the “look-ahead window” is searched for another instruction that is not dependent on any of the currently executing instructions. If one is found, it is issued (out of order!) to keep the [[Pipelined CPU|pipeline]] busy. 
+
+As programmers, we cannot rely on the CPU to execute the instructions in the same order we (or the compiler) wrote them. Both the compiler’s optimizer and the CPU’s out-of-order execution logic take great care to ensure that the behavior of the program doesn’t change as a result of instruction reordering. However, compiler optimizations and out-of-order execution can cause bugs in a concurrent program. This is one of the many reasons why concurrent programming requires more care than serial programming.

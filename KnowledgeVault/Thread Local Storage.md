@@ -1,0 +1,5 @@
+# Thread Local Storage, TLS
+
+We said that all threads within a process share the process’s resources, including its virtual memory space (see [[Anatomy of a Process]] and [[Threads]]). There is one exception to this rule—each thread is given a private memory block known as <mark style="background: #D2B3FFA6;">thread local storage (TLS)</mark>. This allows threads to keep track of data that shouldn’t be shared with other processes. For example, each thread might maintain a private memory allocator. We can think of the TLS memory block as being a part of the thread’s execution context (see [[Context Switching]]).
+
+In practice, TLS memory blocks are usually visible to all threads within a process. They’re typically not protected, the way operating system virtual memory pages are. Instead, the OS grants each thread its own TLS block, all mapped into the process’s virtual address space at different numerical addresses, and a system call is provided that allows any one thread to obtain the address of its private TLS block.

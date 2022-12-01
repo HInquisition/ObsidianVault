@@ -1,0 +1,5 @@
+# Instruction Reordering
+
+To mitigate the effects of a [[Data Dependencies|data dependency]], we need to find some other instructions for the CPU to execute while it waits for the dependent instruction to make its way through the [[Pipelined CPU|pipeline]]. This can often be accomplished by reordering the instructions in the program (while taking care not to change the behavior of the program in the process). For any given pair of interdependent instructions, we want to find some nearby instructions that are not dependent on them, and move those instructions up or down so that they end up running between the dependent instruction pair, thus filling the [[Pipeline Stalls|“bubble”]] with useful work.
+
+Today’s optimizing compilers are good at reordering instructions automatically to reduce or eliminate the impact of data dependencies.
